@@ -1,0 +1,16 @@
+#container {
+    height: 100%;
+    width: 100%;
+    background: green;
+    position: absolute;
+}
+#header{
+    height: 100px;
+    width: 100%;
+    background: red;
+}
+#body {
+    height: 100%;
+    width: 100%;
+    background: blue;
+}​

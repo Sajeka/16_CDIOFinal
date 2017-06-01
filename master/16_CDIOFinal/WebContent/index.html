@@ -1,67 +1,82 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>CDIO 3 - Gruppe 16</title>
+<meta charset="UTF-8">
+<title>Homepage</title>
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
-<link
-	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-	rel="stylesheet"
-	integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-	crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<nav class="navbar navbar-inverse navbar-fixed-top">
-		<div class="container">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-					aria-controls="navbar">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">CDIO 3</a>
-			</div>
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav">
-					<li class="active"><a href="Brugere.html">Brugere<span
-							class="sr-only">(current)</span></a></li>
-					<li><a href="Raavarer.html">Råvarer</a></li>
-					<li><a href="Recepter.html">Recepter</a></li>
-				</ul>
-			</div>
-			<!--/.navbar-collapse -->
+
+	<form method="post" action="useradmin.html">
+		<div
+			class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+			<center>
+				<h1>Login side</h1>
+				<h2>Gruppe 16</h2>
+			</center>
+			<table border="0" class="table table-striped" cellspacing="0">
+				<tr>
+					<td>Brugernavn</td>
+					<td>
+						<div class="form-group">
+							<input type="text" name="brugernavn" value="admin"
+								class="form-control" id="brugernavn">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Kodeord</td>
+					<td><input type="password" class="form-control" name="kodeord"
+						value="root" id="kodeord"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Send data"
+						class="btn btn-block btn-success"></td>
+				</tr>
+			</table>
 		</div>
-	</nav>
-
-	<div id="wrap">
-		<div id="main"></div>
-	</div>
-
-	<footer class="footer" style="">
-		<center>
-			<span>&copy; 2017 Gruppe 16 - Videregående programmering</span>
-		</center>
-	</footer>
-
+	</form>
 	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+		$("form").on("submit", function(event) {
+			event.preventDefault();
+			console.log($("#brugernavn").val());
+			console.log($("#kodeord").val());
+			var error = false;
 
-	<!-- Latest compiled and minified JavaScript -->
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
-		integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
-		crossorigin="anonymous"></script>
+			if ($("#brugernavn").val() != "admin") {
+				$("#brugernavn").parent().removeClass("has-success");
+				$("#brugernavn").parent().addClass("has-error");
+				error = true;
+			} else {
+				$("#brugernavn").parent().removeClass("has-error");
+				$("#brugernavn").parent().addClass("has-success");
+			}
 
+			if ($("#kodeord").val() != "root") {
+				$("#kodeord").parent().removeClass("has-success");
+				$("#kodeord").parent().addClass("has-error");
+				error = true;
+			} else {
+				$("#kodeord").parent().removeClass("has-error");
+				$("#kodeord").parent().addClass("has-success");
+			}
 
-	<script src="js/jquery.serialize-object.js"></script>
-	<script src="js/bootbox.min.js"></script>
-	<script src="js/script.js"></script>
+			if (!error) {
+				if (rolle == 'admin') {
+					window.location.href = 'AdminFront.html';
+				}
+				else {
+					window.location.href = 'Frontpage.html'
+				}
+			}
+		});
+	</script>
 </body>
 </html>
