@@ -1,10 +1,172 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Welcome Admin</title>
-</head>
-<body>
-Velkommen Admin.
-</body>
-</html>
+
+<div class="container">
+	<!-- Example row of columns -->
+	<div class="row">
+		<div class="col-xs-12">
+			<h2>
+				Brugere
+				<div class="pull-right">
+					<button type="button" class="btn btn-success" data-toggle="modal"
+						data-target="#modalOpretBruger">Opret bruger</button>
+				</div>
+			</h2>
+			<table class="table table-striped" id="tableBrugere">
+				<thead>
+					<tr>
+						<th>BrugerID</th>
+						<th>Navn</th>
+						<th>Initialer</th>
+						<th>Rolle</th>
+						<th>Kodeord</th>
+						<th>Ret</th>
+						<th>Slet</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td colspan="10">
+							<center>
+								<h2>
+									<i class="fa fa-circle-o-notch fa-spin" style="font-size: 24px"></i>
+									Loading
+								</h2>
+							</center>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<!-- /container -->
+
+<!-- Modal -->
+<form id="formOpretBruger">
+	<div class="modal fade" id="modalOpretBruger" tabindex="-1"
+		role="dialog" aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Opret bruger</h4>
+				</div>
+				<div class="modal-body">
+					<table border="0" class="table table-striped" cellspacing="0">
+						<tr>
+							<td>CPR-nummer</td>
+							<td><input type="text" name="oprCpr" class="form-control"
+								id="oprCpr" placeholder="Indtast CPR-nummer"></td>
+						</tr>
+						<tr>
+							<td>Navn</td>
+							<td><input type="text" name="oprNavn" class="form-control"
+								id="oprNavn" placeholder="Indtast navn"></td>
+						</tr>
+						<tr>
+							<td>Initialer</td>
+							<td><input type="text" name="ini" class="form-control"
+								id="ini" placeholder="Indtast initialer"></td>
+						</tr>
+						<tr>
+							<td>Kodeord</td>
+							<td><input type="password" class="form-control"
+								name="password" id="password" placeholder="Indtast kodeord"></td>
+						</tr>
+						<tr>
+							<td>Gentag kodeord</td>
+							<td><input type="password" class="form-control"
+								id="gentagPassword" placeholder="Gentag kodeord"></td>
+						</tr>
+						<tr>
+							<td>Rolle</td>
+							<td><select class="form-control" name="rolleId">
+									<option value="" disabled selected>-- Vælg rolle --</option>
+									<option value="1">Administrator</option>
+									<option value="2">Værkfører</option>
+									<option value="3">Pharmaceut</option>
+									<option value="4">Operatør</option>
+							</select></td>
+						</tr>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
+					<input type="submit" class="btn btn-success" id="btnOpretBruger"
+						value="Gem">
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- /Modal -->
+
+
+<!-- Modal -->
+<form id="formRetBruger">
+	<div class="modal fade" id="modalRetBruger" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="myModalLabel">Ret bruger</h4>
+				</div>
+				<div class="modal-body">
+					<table border="0" class="table table-striped" cellspacing="0">
+						<tr>
+							<td>CPR-nummer</td>
+							<td><input type="text" name="oprCpr" class="form-control"
+								id="oprCpr" placeholder="Indtast CPR-nummer" disabled></td>
+						</tr>
+						<tr>
+							<td>Navn</td>
+							<td><input type="text" name="oprNavn" class="form-control"
+								id="oprNavn" placeholder="Indtast navn"></td>
+						</tr>
+						<tr>
+							<td>Initialer</td>
+							<td><input type="text" name="ini" class="form-control"
+								id="ini" placeholder="Indtast initialer"></td>
+						</tr>
+						<tr>
+							<td>Kodeord</td>
+							<td><input type="password" class="form-control"
+								name="password" id="password" placeholder="Indtast kodeord"></td>
+						</tr>
+						<tr>
+							<td>Gentag kodeord</td>
+							<td><input type="password" class="form-control"
+								id="gentagPassword" placeholder="Gentag kodeord"></td>
+						</tr>
+						<tr>
+							<td>Rolle</td>
+							<td><select class="form-control" name="rolleId" id="rolleId">
+									<option value="" disabled selected>-- Vælg rolle --</option>
+									<option value="1">Administrator</option>
+									<option value="2">Værkfører</option>
+									<option value="3">Pharmaceut</option>
+									<option value="4">Operatør</option>
+							</select></td>
+						</tr>
+					</table>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Luk</button>
+					<input type="submit" class="btn btn-success" id="btnRetBruger"
+						value="Gem">
+				</div>
+			</div>
+		</div>
+	</div>
+</form>
+<!-- /Modal -->
+
+<script>
+	loadUsers();
+</script>
