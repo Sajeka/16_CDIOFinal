@@ -1,0 +1,78 @@
+<div class="container">
+	<!-- Example row of columns -->
+	<div class="row">
+	<form method="post" action="useradmin.html">
+	<div class="container">		<div
+			class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+			<center>
+				<h1>Login side</h1>
+				<h2>Gruppe 16</h2>
+			</center>
+			<table border="0" class="table table-striped" cellspacing="0">
+				<tr>
+					<td>Brugernavn</td>
+					<td>
+						<div class="form-group">
+							<input type="text" name="brugernavn" value="admin"
+								class="form-control" id="brugernavn">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>Kodeord</td>
+					<td><input type="password" class="form-control" name="kodeord"
+						value="root" id="kodeord"></td>
+				</tr>
+				<tr>
+					<td>Rolle</td>
+					<td><input type="text" class="form-control" name="rolle"
+						value="1" id="rolle"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" value="Send data"
+						class="btn btn-block btn-success"></td>
+				</tr>
+			</table>
+		</div>
+	</form>
+	</div>
+	</div>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+		$("form").on("submit", function(event) {
+			event.preventDefault();
+			console.log($("#brugernavn").val());
+			console.log($("#kodeord").val());
+			console.log($("#rolle").val());
+			var error = false;
+
+			if ($("#brugernavn").val() != "admin") {
+				$("#brugernavn").parent().removeClass("has-success");
+				$("#brugernavn").parent().addClass("has-error");
+				error = true;
+			} else {
+				$("#brugernavn").parent().removeClass("has-error");
+				$("#brugernavn").parent().addClass("has-success");
+			}
+
+			if ($("#kodeord").val() != "root") {
+				$("#kodeord").parent().removeClass("has-success");
+				$("#kodeord").parent().addClass("has-error");
+				error = true;
+			} else {
+				$("#kodeord").parent().removeClass("has-error");
+				$("#kodeord").parent().addClass("has-success");
+			}
+
+			if (!error) {
+				if ($("#rolle").val() == "1") {
+					window.location.href = 'AdminFront.html';
+				}
+				else {
+					window.location.href = 'Frontpage.html'
+				}
+			}
+		});
+	</script>
